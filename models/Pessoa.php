@@ -8,20 +8,20 @@ class Pessoa extends ConexaoBanco {
     }
 
     function selectAll(){
-        $sql = $this->conBD->prepare("SELECT * FROM ipessoa ORDER BY nome");
+        $sql = $this->conBD->prepare("SELECT * FROM pessoa ORDER BY nome");
         $sql->execute();
         return $sql->fetchAll();
     }
 
 
     function insert($data) {
-        $sql = $this->conBD->prepare("INSERT INTO pessoa (nome, cpf, idade, telefone, email, endereco, observacao) VALUES (:nome, :cpf, :telefone, :email, :endereco, :observacao)");
+        $sql = $this->conBD->prepare("INSERT INTO pessoa (nome, cpf, endereco, telefone, idade, email, observacao) VALUES (:nome, :cpf, :endereco, :telefone, :idade, :email, :observacao)");
         $sql->bindParam(":nome", $data["nome"]);
         $sql->bindParam(":cpf", $data["cpf"]);
-        $sql->bindParam(":idade", $data["idade"]);
-        $sql->bindParam(":telefone", $data["telefone"]);
-        $sql->bindParam(":email", $data["email"]);
         $sql->bindParam(":endereco", $data["endereco"]);
+        $sql->bindParam(":telefone", $data["telefone"]);
+        $sql->bindParam(":idade", $data["idade"]);
+        $sql->bindParam(":email", $data["email"]);
         $sql->bindParam(":observacao", $data["observacao"]);
         $sql->execute();
         return $sql->rowCount();

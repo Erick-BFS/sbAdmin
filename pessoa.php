@@ -17,7 +17,7 @@ switch ($action) {
     case "adicionar":
         $controller->novaPessoa();
         break;
-    case "incert":
+    case "insert":
         $controller->insert($_POST);
         break;
 }
