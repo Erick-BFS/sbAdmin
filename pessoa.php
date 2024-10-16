@@ -10,6 +10,14 @@ if(isset($_GET["action"])) {
 }
 
 //AÇÕES
-if($action == "listar") {
-    $controller->selectAll();
+switch ($action) {
+    case "listar":
+        $controller->selectAll();
+        break;
+    case "adicionar":
+        $controller->novaPessoa();
+        break;
+    case "incert":
+        $controller->insert($_POST);
+        break;
 }
