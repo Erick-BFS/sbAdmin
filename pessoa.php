@@ -31,8 +31,11 @@ switch ($action) {
         }
         break;
     case "update":
-        if (isset($_GET["id"])) {
-            $controller->update($_POST["data"]);
+        if (isset($_POST["id"])) {
+            $controller->update($_POST);
         }
         break;
+    default:
+        echo"Erro 404: Página não encontrada.";
+    break;
 }

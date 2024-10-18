@@ -41,15 +41,15 @@ class Pessoa extends ConexaoBanco {
     }
 
     function update($data) {
-        $sql = $this->conBD->prepare("UPDATE pessoa SET nome=:nome, cpf=:cpf, idade=:idade, telefone=:telefone, email,=:email, endereco=:endereco, observacao=:observacao WHERE id=:id");
+        $sql = $this->conBD->prepare("UPDATE pessoa SET nome=:nome, email=:email, cpf=:cpf, idade=:idade, telefone=:telefone, endereco=:endereco, observacao=:observacao WHERE id=:id");
         $sql->bindParam(":id", $data["id"]);
-        $sql->bindParam("nome", $data["nome"]);
-        $sql->bindParam("cpf", $data["cpf"]);
-        $sql->bindParam("idade", $data["idade"]);
-        $sql->bindParam("email", $data["email"]);
-        $sql->bindParam("telefone", $data["telefone"]);
-        $sql->bindParam("endereco", $data["endereco"]);
-        $sql->bindParam("observacao", $data["observacao"]);
+        $sql->bindParam(":nome", $data["nome"]);
+        $sql->bindParam(":cpf", $data["cpf"]);
+        $sql->bindParam(":idade", $data["idade"]);
+        $sql->bindParam(":email", $data["email"]);
+        $sql->bindParam(":telefone", $data["telefone"]);
+        $sql->bindParam(":endereco", $data["endereco"]);
+        $sql->bindParam(":observacao", $data["observacao"]);
         $sql->execute();
         return $sql->rowCount();
     }
