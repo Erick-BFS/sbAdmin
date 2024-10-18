@@ -17,12 +17,22 @@ switch ($action) {
     case "adicionar":
         $controller->novaPessoa();
         break;
+    case "editar":
+        if(isset($_GET["id"])) {
+            $controller->editar($_GET["id"]);
+        }
+        break;
     case "insert":
         $controller->insert($_POST);
         break;
     case "delete":
-        if(isset($_GET["id"])) {
+        if (isset($_GET["id"])) {
             $controller->delete($_GET["id"]);
-            break;
         }
+        break;
+    case "update":
+        if (isset($_GET["id"])) {
+            $controller->update($_POST["data"]);
+        }
+        break;
 }

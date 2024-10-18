@@ -1,3 +1,22 @@
+<?php
+if (!empty(($result["id"]))) {
+    // editar
+} else {
+    //adicionar
+    $titulo = "Adicionar Pessoa";
+    $action = "insert";
+    $id = "";
+    $nome = "";
+    $cpf = "";
+    $idade = "";
+    $telefone = "";
+    $email = "";
+    $endereco = "";
+    $observacao = "";
+}
+
+?>
+
 <?php include "./views/includes/header.php" ?>
 
     <div class="container">
