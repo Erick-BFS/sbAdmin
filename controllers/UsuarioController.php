@@ -14,9 +14,11 @@ class UsuarioController {
         $result = $this->model->login($data);
 
         if ($result == false) {
-            echo "Usuário ou senha inválidos";
+            $_SESSION["login_error"] = "Usuário ou senha inválidos";
         } else {
-            echo "Bem-vindo ao sistema";
+            unset($_SESSION["login_error"]);
         }
+
+        header("Location: ./index.php");
     }
 }

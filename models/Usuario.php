@@ -15,6 +15,11 @@ class UsuarioModel extends ConexaoBanco {
         $sql->execute();
 
         if($sql->rowCount() > 0) {
+            $result = $sql->fetch();
+
+            $_SESSION["usuario_id"] = $result["id"];
+            $_SESSION["usuario_nome"] = $result["nome"];
+            
             return true;
         } else {
             return false;
