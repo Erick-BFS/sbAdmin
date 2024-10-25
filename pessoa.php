@@ -1,5 +1,8 @@
 <?php
 
+require_once("./utils/auth.php");
+checkLogin();
+
 require_once "./controllers/PessoaController.php";
 
 $controller = new PessoaController();
