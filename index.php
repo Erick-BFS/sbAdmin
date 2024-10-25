@@ -13,14 +13,18 @@ if ( isset( $_GET["action"] )) {
     $action = $_GET["action"];
 }
 
-if (isset($_SESSION["usuario_id"])){
-    header("Location: ./home.php");
-    exit;
-}
-
-if ($action == "login") {
-    if ( isset( $_POST["email"] ) && isset( $_POST["senha"] )) {
-        $controller->login($_POST);
+if (isset($_SESSION["usuario_id"]) || $action=="login") {
+    switch ($action) {
+        case "logout":
+            $controller->logout();
+        case "login":
+            if ( isset( $_POST["email"] ) && isset( $_POST["senha"] )) {
+                $controller->login($_POST);
+            }
+            break;
+        default:
+            header("Location: ./home.php");
+            break;
     }
 } else {
     header("Location: ./login.php");
