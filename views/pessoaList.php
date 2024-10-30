@@ -64,10 +64,13 @@
 
 </div>
 
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- Begin Toastr (Mensagens) -->
     <?php
     if (isset($_SESSION['message']) && isset($_SESSION['messageType'])) {
-        echo $util->showMsgToastr($_SESSION['messageType'], $_SESSION['message']);
+        echo showMsgToastr($_SESSION['messageType'], $_SESSION['message']);
     }
     unset($_SESSION['message']);
     unset($_SESSION['messageType']);
