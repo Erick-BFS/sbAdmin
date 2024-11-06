@@ -22,6 +22,9 @@ if (isset($_SESSION["usuario_id"]) || $action=="login") {
                 $controller->login($_POST);
             }
             break;
+            case "perfil":
+                $controller->perfil();
+                break;
         default:
             header("Location: ./home.php");
             break;

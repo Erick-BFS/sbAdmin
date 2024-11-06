@@ -25,4 +25,11 @@ class UsuarioModel extends ConexaoBanco {
             return false;
         }
     }
+
+    function selectById($id) {
+        $sql = $this->conBD->prepare("SELECT * FROM usuario WHERE id = :id");
+        $sql->bindParam(":id", $id);
+        $sql->execute();
+        return $sql->fetch();
+    }
 }

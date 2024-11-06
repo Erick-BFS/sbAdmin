@@ -26,4 +26,10 @@ class UsuarioController {
         session_destroy();
         header("Location: ./index.php");
     }
+
+    function perfil() {
+        $id = $_SESSION["usuario_id"];
+        $result = $this->model->selectById($id);
+        var_dump($result);
+    }
 }
