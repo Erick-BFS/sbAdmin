@@ -21,10 +21,15 @@ if (isset($_SESSION["usuario_id"]) || $action=="login") {
             if ( isset( $_POST["email"] ) && isset( $_POST["senha"] )) {
                 $controller->login($_POST);
             }
-            break;
+        break;
             case "perfil":
                 $controller->perfil();
-                break;
+            break;
+            case "upload":
+                if ( isset( $_FILES["img-perfil"] )) {
+                $controller->upload( $_FILES["img-perfil"] );
+                }
+            break;
         default:
             header("Location: ./home.php");
             break;

@@ -30,6 +30,11 @@ class UsuarioController {
     function perfil() {
         $id = $_SESSION["usuario_id"];
         $result = $this->model->selectById($id);
-        var_dump($result);
+        require("./views/usuario-perfil.php");
+    }
+
+    function upload($img_perfil) {
+        $result = $this->model->updateImage($img_perfil);
+        header("Location: ./index.php?action=perfil");
     }
 }
